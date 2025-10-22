@@ -12,3 +12,16 @@ python server0.py
 
 Agora a aplicação está rodando na porta 8000.
 
+### Segundo Exemplo
+
+```bash
+python server1.py
+```
+
+### Terceiro Exemplo
+
+```bash
+python server.py
+```
+
+
