@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "toy"
+version = "0.1.0"
+description = "A framework designed For Fun"
+authors = ["Osvaldo Santana Neto <osantana@osantana.me>"]
+license = "AGPL"
+readme = "README.md"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+staty = "*"
+accept = "*"
+prettyconf = "*"
+jinja2 = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+webtest = "*"
+blue = "*"
+ruff = "*"
+pre-commit = "*"
+sphinx = "*"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+
+[tool.blue]
+line-length = 120
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+select = [
+    "A", "B", "C", "D", "E", "F", "G", "I", "N", "T", "W", "ARG",
+    "BLE", "COM", "DTZ", "ERA", "EXE", "FBT", "ICN", "INP", "ISC",
+    "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "RUF", "SLF",
+    "TCH", "TID", "TRY", "UP", "YTT",
+]
+ignore = []
+fixable = [
+    "A", "B", "C", "D", "E", "F", "G", "I", "N", "T", "W", "ARG",
+    "BLE", "COM", "DTZ", "ERA", "EXE", "FBT", "ICN", "INP", "ISC",
+    "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "RUF", "SLF",
+    "TCH", "TID", "TRY", "UP", "YTT",
+]
+unfixable = ["RET"]
+
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+[tool.ruff.isort]
+known-first-party = ["recipes"]
