@@ -1,10 +1,5 @@
 from wsgiref.simple_server import WSGIRequestHandler, WSGIServer
-
-
-class Application:
-    def __call__(self, environ, start_response):
-        start_response('200 OK', [('Content-Type', 'text/plain')])
-        return ['Teste'.encode()]
+from .application import Application
 
 
 class HTTPServer:

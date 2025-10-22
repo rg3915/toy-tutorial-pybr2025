@@ -4,6 +4,18 @@ Este é um repositório de aprendizado sobre como criar um framework web com Osv
 
 Repo: https://github.com/osantana/toy
 
+
+## Instalação
+
+Vamos precisar do `accept`.
+
+```bash
+python -m venv .venv        # Criar virtualenv
+source .venv/bin/activate   # Ativar
+
+pip install accept staty
+```
+
 ### Primeiro Exemplo
 
 ```bash
@@ -23,5 +35,4 @@ python server1.py
 ```bash
 python server.py
 ```
-
 
