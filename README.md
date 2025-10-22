@@ -4,3 +4,11 @@ Este é um repositório de aprendizado sobre como criar um framework web com Osv
 
 Repo: https://github.com/osantana/toy
 
+### Primeiro Exemplo
+
+```bash
+python server0.py
+```
+
+Agora a aplicação está rodando na porta 8000.
+
