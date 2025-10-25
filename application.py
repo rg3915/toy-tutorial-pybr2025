@@ -1,4 +1,4 @@
-from .http import Request, Response, WSGIResponse
+from http_objects import Request, Response, WSGIResponse
 
 
 class Application:
@@ -9,12 +9,12 @@ class Application:
         ...
 
     def call_handler(self, request: Request) -> Response:
-        return Response()
+        return Response('')
 
     def __call__(self, environ, start_response):
         request = Request(environ)
         response = self.call_handler(request)
         wsgi_response = WSGIResponse(response)
 
-        start_response(wsgi_response.status, wsgi_response.header)
+        start_response(wsgi_response.status, wsgi_response.headers)
         return wsgi_response.body

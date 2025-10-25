@@ -4,6 +4,9 @@ Este é um repositório de aprendizado sobre como criar um framework web com Osv
 
 Repo: https://github.com/osantana/toy
 
+Lib utilizada: https://github.com/osantana/staty
+
+Site: 
 
 ## Instalação
 
@@ -36,3 +39,6 @@ python server1.py
 python server.py
 ```
 
+## Todo
+
+Ver a parte de rotas em [routing.py](https://github.com/osantana/toy/blob/main/toy/routing.py).

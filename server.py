@@ -1,24 +1,49 @@
 from wsgiref.simple_server import WSGIRequestHandler, WSGIServer
-from .application import Application
+from application import Application
 
 
 class HTTPServer:
-    def __init__(self, app):
-        self.app = app
+    def __init__(self, application, wsgi_server=WSGIServer, **kwargs):
+        self.application = application
+
+        self.settings = {
+            'hostname': 'localhost',
+            'port': 8000,
+            'quiet': False,
+        }
+        self.settings.update(kwargs)
+
+        self._wsgi_server = wsgi_server
+
+    @property
+    def hostname(self):
+        return self.settings['hostname']
+
+    @property
+    def port(self):
+        return int(self.settings['port'])
+
+    def _print(self, msg):
+        if self.settings['quiet']:
+            return
+
+        print(msg)
 
     def run(self):
-        server = WSGIServer(('localhost', 8000), WSGIRequestHandler)
-        server.set_app(self.app)
+        server = self._wsgi_server(
+            (self.hostname, self.port),
+            WSGIRequestHandler,
+        )
+        server.set_app(self.application)
 
-        print('Serving on http://localhost:8000 (press ctrl-c to stop)...')
+        self._print(f'Serving on {self.hostname}:{self.port} (press ctrl-c to stop)...')
 
         try:
             server.serve_forever()
         except KeyboardInterrupt:
-            print('\nStopping...')
+            self._print('\nStopping...')
 
 
 application = Application()
-
 server = HTTPServer(application)
 server.run()
